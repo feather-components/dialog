@@ -1,0 +1,79 @@
+.ui3-dialog{
+    border-radius: 3px;
+    background: #fff;
+    padding-bottom: 30px;
+}
+
+.ui3-dialog a:hover{
+    text-decoration: none;
+}
+
+.ui3-dialog-close{
+    display: block;
+    width: 21px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    font-size: 21px;
+    text-decoration: none;
+    color: #333;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+}
+
+.ui3-dialog-title{
+    margin-top: 54px;
+    color: #ff8447;
+    font-size: 20px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+}
+
+.ui3-dialog-content{
+    overflow: auto;
+    margin: 22px 11px;
+    padding: 0px 13px;
+}
+
+.ui3-dialog-content::-webkit-scrollbar{
+    width: 11px;
+}
+
+.ui3-dialog-content::-webkit-scrollbar-thumb{
+    background: #ccc;
+}
+
+.ui3-dialog-buttons{
+    border: 0px;
+    text-align: center;
+    height: 52px;
+    padding: 20px 16px 0px 16px;
+    list-style: none;
+    margin: 0px;
+}
+
+.ui3-dialog-buttons > li{
+    float: left;
+}
+
+.ui3-dialog-button{
+    width: 90%;
+    cursor: pointer;
+    border: 0px;
+    margin: auto;
+    border-radius: 3px;
+    background: #FF8447;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 14px;
+    height: 52px;
+    line-height: 52px;
+    text-decoration: none;
+}
+
+.ui3-dialog-button:hover{
+    color: #fff;
+    background: #ef5921;
+}

@@ -1,0 +1,11 @@
+{
+    "name": "dialog",
+    "desc": "弹框",
+    "version": "1.0.0",
+    "dependencies": {
+        "jquery": "~1.12.0",
+        "class": "feather-components/class",
+        "overlay": "feather-components/overlay",
+        "mask": "feather-components/mask"
+    }
+}
