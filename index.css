@@ -2,6 +2,7 @@
     border-radius: 3px;
     background: #fff;
     padding-bottom: 30px;
+    padding-top: 54px;
 }
 
 .ui3-dialog a:hover{
@@ -23,17 +24,17 @@
 }
 
 .ui3-dialog-title{
-    margin-top: 54px;
     color: #ff8447;
     font-size: 20px;
     height: 26px;
     line-height: 26px;
     text-align: center;
+    margin-bottom: 3px;
 }
 
 .ui3-dialog-content{
     overflow: auto;
-    margin: 22px 11px;
+    margin: 0px 11px;
     padding: 0px 13px;
 }
 
