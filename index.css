@@ -74,6 +74,10 @@
 }
 
 .ui3-dialog-button:hover{
-    color: #fff;
     background: #ef5921;
+}
+
+.ui3-dialog-button-disabled{
+    cursor: default;
+    background: #dfdfdf !important;
 }

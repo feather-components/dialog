@@ -18,6 +18,7 @@ return Class.$factory('dialog', {
         var self = this;
         var options = self.options = $.extend({
             title: '',
+            closeButtonDisabled: false,
             container: document.body,
             dom: null,
             width: 400,
@@ -53,7 +54,7 @@ return Class.$factory('dialog', {
             });
         }
 
-        self.$overlay.$.find('.ui3-dialog-close').click(function(){
+        self.$.find('.ui3-dialog-close').click(function(){
             self.close();
         });
 
@@ -67,7 +68,7 @@ return Class.$factory('dialog', {
                 self.close();
             });
 
-            self.$overlay.$.on('click', function(e){
+            self.$.on('click', function(e){
                 e.stopPropagation();
             });
         }
@@ -79,13 +80,15 @@ return Class.$factory('dialog', {
         self.$overlay = new Overlay({
             container: options.container,
             width: options.width,
-            content: '<div class="ui3-dialog-content"></div>',
+            content: '<a href="javascript:" class="ui3-dialog-close">&times;</a><div class="ui3-dialog-content"></div>',
             autoOpen: false,
             className: 'ui3-dialog ' + options.className,
             center: true
         });
 
-        self.$content = self.$overlay.$.find('.ui3-dialog-content').css('height', options.height);
+        self.$ = self.$overlay.$;
+        self.$content = self.$.find('.ui3-dialog-content').css('height', options.height);
+        options.closeButtonDisabled && self.disableCloseButton();
         self.setTitle(options.title);
         self.setButtons(options.buttons);
         self.initContent();
@@ -136,7 +139,7 @@ return Class.$factory('dialog', {
             return;
         }
 
-        var $group = $('<ul class="ui3-dialog-buttons">').appendTo($overlay);
+        var $group = $('<ul class="ui3-dialog-buttons">');
         var count = 0;
 
         $.each(buttons, function(index, item){
@@ -156,7 +159,7 @@ return Class.$factory('dialog', {
 
             $.each(item.events, function(event, callback){
                 $button.on(event, function(){
-                    callback.call(self, $button);
+                    !$button.hasClass('ui3-dialog-button-disabled') && callback.call(self, $button);
                 });
             });
 
@@ -164,28 +167,38 @@ return Class.$factory('dialog', {
         });
 
         $group.find('li').css('width', (100/count) + '%');
+        $overlay.append($group);
     },
 
     getButton: function(name){
-        var $buttons = this.buttons.find('.ui3-dialog-button');
+        var $buttons = this.$.find('.ui3-dialog-button');
         return typeof name == 'number' ? $buttons.eq(name) : $buttons.filter('[data-dialog-button-name="' + name + '"]');
+    },
+
+    enableButton: function(name){
+        this.getButton(name).removeClass('ui3-dialog-button-disabled');
+    },
+
+    disableButton: function(name){
+        this.getButton(name).addClass('ui3-dialog-button-disabled');
+    },
+
+    enableCloseButton: function(){
+        this.$.find('.ui3-dialog-close').show();
+    },
+
+    disableCloseButton: function(){
+        this.$.find('.ui3-dialog-close').hide();
     },
 
     //设置title，为false时，则头部会被隐藏掉
     setTitle: function(title){
-        var self = this;
-        var $overlay = self.$overlay.$;
+        var self = this, $Overlay
 
         if(!title){
-            $overlay.find('.ui3-dialog-title').remove();
+            self.$.find('.ui3-dialog-title').remove();
         }else{
-            $overlay.find('.ui3-dialog-content').before('<div class="ui3-dialog-title">' + title + '</div>');
-        }
-
-        if(title === false){
-            $overlay.find('.ui3-dialog-close').remove();
-        }else{
-            $overlay.prepend('<a href="javascript:" class="ui3-dialog-close">&times;</a>');
+            self.$.find('.ui3-dialog-content').before('<div class="ui3-dialog-title">' + title + '</div>');
         }
 
         self.$overlay.setPosCenter();
@@ -221,7 +234,7 @@ return Class.$factory('dialog', {
 
     destroy: function(){
         var self = this, options = self.options;
-        console.log('destroy');
+
         self.$mask && self.$mask.destroy();
         self.$mask = null;
         self.releaseDom();
