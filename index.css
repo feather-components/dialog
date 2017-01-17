@@ -17,10 +17,14 @@
     text-align: center;
     font-size: 21px;
     text-decoration: none;
-    color: #333;
+    color: #ccc;
     position: absolute;
     right: 6px;
     top: 6px;
+}
+
+.ui3-dialog-close:hover{
+    color: #333;
 }
 
 .ui3-dialog-title{
