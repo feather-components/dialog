@@ -2,7 +2,7 @@
     border-radius: 3px;
     background: #fff;
     padding-bottom: 30px;
-    padding-top: 54px;
+    padding-top: 50px;
 }
 
 .ui3-dialog a:hover{
@@ -68,7 +68,7 @@
     background: #FF8447;
     color: #FFFFFF;
     display: inline-block;
-    font-size: 14px;
+    font-size: 20px;
     height: 52px;
     line-height: 52px;
     text-decoration: none;
