@@ -2,7 +2,7 @@
     border-radius: 3px;
     background: #fff;
     padding-bottom: 30px;
-    padding-top: 50px;
+    padding-top: 40px;
 }
 
 .ui3-dialog a:hover{
@@ -28,7 +28,7 @@
 }
 
 .ui3-dialog-title{
-    color: #ff8447;
+    color: #464E78;
     font-size: 20px;
     height: 26px;
     line-height: 26px;
@@ -69,21 +69,22 @@
     border: 0px;
     margin: auto;
     border-radius: 3px;
-    background: #FF8447;
+    background: #5986E1;
     color: #FFFFFF;
     display: inline-block;
-    font-size: 20px;
-    height: 50px;
-    line-height: 50px;
-    border: 1px solid #FF8447;
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #5986E1;
     text-decoration: none;
 }
 
 .ui3-dialog-button:hover{
-    background: #ef5921;
+    background: #3E6BC5;
 }
 
 .ui3-dialog-button-disabled{
     cursor: default;
+    border: 1px solid #dfdfdf !important;
     background: #dfdfdf !important;
 }
