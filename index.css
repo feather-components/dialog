@@ -90,6 +90,14 @@
     text-decoration: none;
 }
 
+.ui3-dialog-buttons-1 li{
+    text-align: center;;
+}
+
+.ui3-dialog-buttons-1 .ui3-dialog-button{
+    width: 99%;
+}
+
 .ui3-dialog-button:hover{
     background: #3E6BC5;
 }

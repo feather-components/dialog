@@ -169,6 +169,7 @@ return Class.$factory('dialog', {
         });
 
         $group.find('li').css('width', (100/count) + '%');
+        $group.addClass('ui3-dialog-buttons-' + count);
         $overlay.append($group);
     },
 
