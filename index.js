@@ -36,9 +36,9 @@ return Class.$factory('dialog', {
         self.dom = null;
 
         if(options.mask){
-            self.$mask = new Mask({autoOpen: options.autoOpen, container: options.container});
+            self.$mask = new Mask({autoOpen: false, container: options.container});
         }
-        
+
         self.create();
         self.isFirstOpen = true;
         self.initEvent();
