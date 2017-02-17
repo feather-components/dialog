@@ -15,7 +15,8 @@
 </head>
 
 <body>
-<div id="test">fdsfsdfsd</div>
+<div id="container"><div id="test">fdsfsdfsd</div></div>
+
 <script>
 var dialog = new $.fn.dialog({
     esc: true,
@@ -36,6 +37,13 @@ var dialog = new $.fn.dialog({
 });
 
 dialog.disableButton('关闭');
+
+setTimeout(function(){
+    dialog.close();
+    setTimeout(function(){
+    dialog.open();
+}, 2000);
+}, 2000);
 </script>
 </body>
 </html>

@@ -118,7 +118,9 @@ return Class.$factory('dialog', {
         var self = this;
 
         self.releaseDom();
-        self.$content.empty().append(self.$dom = $(dom));
+        self.$dom = $(dom).show();
+        self.$dom.$parent = self.$dom.parent();
+        self.$content.empty().append(self.$dom);
         self.$overlay.setPosCenter();
     },
 
@@ -193,7 +195,7 @@ return Class.$factory('dialog', {
 
     //设置title，为false时，则头部会被隐藏掉
     setTitle: function(title){
-        var self = this, $Overlay
+        var self = this;
 
         if(!title){
             self.$.find('.ui3-dialog-title').remove();
@@ -208,6 +210,7 @@ return Class.$factory('dialog', {
         var self = this, options = self.options;
 
         self.$mask && self.$mask.open();
+        self.$dom && self.$content.append(self.$dom.show());
         self.$overlay.open();
         self.trigger('open');
 
@@ -221,15 +224,16 @@ return Class.$factory('dialog', {
         var self = this;
 
         self.$mask && self.$mask.close();
+        self.releaseDom(true);
         self.$overlay.hide();
         self.trigger('close');
     },
 
-    releaseDom: function(){
+    releaseDom: function(notRealRelease){
         var self = this;
 
-        self.$dom && self.$dom.appendTo(self.options.container);
-        self.$dom = null;
+        self.$dom && self.$dom.$parent.append(self.$dom.hide());
+        !notRealRelease && (self.$dom = null);
     },
 
     destroy: function(){
