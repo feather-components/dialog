@@ -211,7 +211,6 @@ return Class.$factory('dialog', {
         var self = this, options = self.options;
 
         self.$mask && self.$mask.open();
-        self.$dom && self.$content.append(self.$dom.show());
         self.$overlay.open();
         self.trigger('open');
 
@@ -225,16 +224,15 @@ return Class.$factory('dialog', {
         var self = this;
 
         self.$mask && self.$mask.close();
-        self.releaseDom(true);
         self.$overlay.hide();
         self.trigger('close');
     },
 
-    releaseDom: function(notRealRelease){
+    releaseDom: function(){
         var self = this;
 
         self.$dom && self.$dom.$parent.append(self.$dom.hide());
-        !notRealRelease && (self.$dom = null);
+        self.$dom = null;
     },
 
     destroy: function(){

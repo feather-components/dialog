@@ -20,7 +20,7 @@
 <script>
 var dialog = new $.fn.dialog({
     esc: true,
-    autoOpen: true,
+    autoOpen: false,
     dom: '#test',
     title: '12333',
     buttons: {
@@ -37,6 +37,15 @@ var dialog = new $.fn.dialog({
 });
 
 dialog.disableButton('关闭');
+
+setTimeout(function(){
+    dialog.open();
+    setTimeout(function(){
+    dialog.destroy();
+    
+}, 3000);
+
+}, 3000);
 
 </script>
 </body>
