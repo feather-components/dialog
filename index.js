@@ -99,7 +99,7 @@ return Class.$factory('dialog', {
 
         if(options.content){
             self.setContent(options.content);
-        }else if(options.dom){
+        }else if(options.dom){ 
             self.setDom(options.dom);
         }else if(options.url){
             self.load(options.url);
@@ -109,19 +109,12 @@ return Class.$factory('dialog', {
     setContent: function(content){
         var self = this;
 
-        self.releaseDom();
-        self.$content.html(content);
+        self.$content.empty().append(content);
         self.$overlay.setPosCenter();
     },
 
     setDom: function(dom){
-        var self = this;
-
-        self.releaseDom();
-        self.$dom = $(dom).show();
-        self.$dom.$parent = self.$dom.parent();
-        self.$content.empty().append(self.$dom);
-        self.$overlay.setPosCenter();
+        this.setContent($(dom).show());
     },
 
     load: function(url){
@@ -228,19 +221,11 @@ return Class.$factory('dialog', {
         self.trigger('close');
     },
 
-    releaseDom: function(){
-        var self = this;
-
-        self.$dom && self.$dom.$parent.append(self.$dom.hide());
-        self.$dom = null;
-    },
-
     destroy: function(){
         var self = this, options = self.options;
 
         self.$mask && self.$mask.destroy();
         self.$mask = null;
-        self.releaseDom();
         self.$overlay.destroy();
         self.$overlay = null;
         self.ofs(window, 'resize');
