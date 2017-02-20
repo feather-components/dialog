@@ -30,8 +30,13 @@ var dialog = new $.fn.dialog({
         "干掉": function(){
             this.destroy();
         },
-        "修改内容": function(){
-            this.setContent('hello, world<br /><br />');
+        "修改内容": {
+            className: $.fn.dialog.BUTTON_STYLES.HOLLOW,
+            events: {
+                click: function(){
+                    this.setContent('hello, world<br /><br />');
+                }
+            }
         }
     }
 });

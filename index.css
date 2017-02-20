@@ -111,3 +111,14 @@
     border: 1px solid #dfdfdf !important;
     background: #dfdfdf !important;
 }
+
+
+.ui3-dialog-button-hollow{
+    background: #fff;
+    color: #3E6BC5;
+}
+
+.ui3-dialog-button-hollow:hover{
+    background: #3E6BC5;
+    color: #fff;
+}

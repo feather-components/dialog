@@ -13,7 +13,7 @@ if(typeof define == 'function' && define.amd){
     factory(window.jQuery, window.jQuery.klass, window.jQuery.overlay, window.jQuery.fn.mask);
 }
 })(function($, Class, Overlay, Mask){
-return Class.$factory('dialog', {
+var Dialog = Class.$factory('dialog', {
     initialize: function(opt){
         var self = this;
         var options = self.options = $.extend({
@@ -174,11 +174,11 @@ return Class.$factory('dialog', {
     },
 
     enableButton: function(name){
-        this.getButton(name).removeClass('ui3-dialog-button-disabled');
+        this.getButton(name).removeClass(Dialog.BUTTON_STYLES.DISABLED);
     },
 
     disableButton: function(name){
-        this.getButton(name).addClass('ui3-dialog-button-disabled');
+        this.getButton(name).addClass(Dialog.BUTTON_STYLES.DISABLED);
     },
 
     enableCloseButton: function(){
@@ -238,4 +238,11 @@ return Class.$factory('dialog', {
         self.ofs(document.body, 'keyup');
     }
 });
+
+$.fn.dialog.BUTTON_STYLES = Dialog.BUTTON_STYLES = {
+    DISABLED: 'ui3-dialog-button-disabled',
+    HOLLOW: 'ui3-dialog-button-hollow'
+};
+
+return Dialog;
 });

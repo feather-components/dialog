@@ -78,3 +78,8 @@ $('#dialog').dialog().getButton(0).click(function(){
     alert('为确定再次绑定click事件')
 });
 ```
+
+###按钮样式
+
+* Dialog.BUTTON_STYLES.HOLLOW: 空心样式
+* Dialog.BUTTON_STYLES.DISABLED: 不可用样式
