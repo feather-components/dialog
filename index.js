@@ -134,7 +134,8 @@ return Class.$factory('dialog', {
             return;
         }
 
-        var $group = $('<ul class="ui3-dialog-buttons">');
+        var $group = $('<table class="ui3-dialog-buttons">');
+        var $tr = $('<tr>').appendTo($group);
         var count = 0;
 
         $.each(buttons, function(index, item){
@@ -158,12 +159,13 @@ return Class.$factory('dialog', {
                 });
             });
 
-            $('<li>').append($button).appendTo($group);
+            $('<td>').append($button).appendTo($tr);
         });
 
-        $group.find('li').css('width', (100/count) + '%');
-        $group.addClass('ui3-dialog-buttons-' + count);
         $overlay.append($group);
+        $group.find('td:first').addClass('ui3-dialog-button-first');
+        $group.find('td:last').addClass('ui3-dialog-button-last');
+        $group.addClass('ui3-dialog-buttons-' + count);
     },
 
     getButton: function(name){
@@ -193,7 +195,9 @@ return Class.$factory('dialog', {
 
         if(!title){
             self.$.find('.ui3-dialog-title').remove();
+            self.$.addClass('ui3-dialog-not');
         }else{
+            self.$.removeClass('ui3-dialog-not');
             self.$.find('.ui3-dialog-content').before('<div class="ui3-dialog-title">' + title + '</div>');
         }
 

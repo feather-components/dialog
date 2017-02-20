@@ -1,8 +1,11 @@
 .ui3-dialog{
     border-radius: 3px;
     background: #fff;
-    padding-bottom: 30px;
-    padding-top: 40px;
+    padding: 0px 18px 18px 18px;
+}
+
+.ui3-dialog-not{
+    padding-top: 57px;
 }
 
 .ui3-dialog a:hover{
@@ -11,16 +14,16 @@
 
 .ui3-dialog-close{
     display: block;
-    width: 21px;
-    height: 21px;
-    line-height: 21px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
     text-align: center;
-    font-size: 21px;
+    font-size: 30px;
     text-decoration: none;
     color: #ccc;
     position: absolute;
-    right: 6px;
-    top: 6px;
+    right: 12px;
+    top: 10px;
 }
 
 .ui3-dialog-close:hover{
@@ -30,17 +33,15 @@
 .ui3-dialog-title{
     color: #464E78;
     font-size: 20px;
-    height: 26px;
-    line-height: 26px;
-    text-align: center;
-    margin-bottom: 3px;
+    height: 56px;
+    line-height: 56px;
+    border-bottom: 1px solid #DFDFDF;
 }
 
 .ui3-dialog-content{
     overflow: auto;
     font-size: 14px;
-    margin: 0px 11px;
-    padding: 30px 40px;
+    margin: 20px 0px;
 }
 
 .ui3-dialog-content::-webkit-scrollbar{
@@ -55,21 +56,24 @@
     border: 0px;
     text-align: center;
     height: 52px;
-    padding: 10px 40px 0px 40px;
+    padding: 10px 0px;
     list-style: none;
     margin: 0px;
+    border: 0px;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
 }
 
-.ui3-dialog-buttons > li{
-    float: left;
+.ui3-dialog-buttons > td{
     text-align: center;
 }
 
-.ui3-dialog-buttons li:first-child{
+.ui3-dialog-buttons .ui3-dialog-button-first{
     text-align: left;
 }
 
-.ui3-dialog-buttons li:last-child{
+.ui3-dialog-buttons .ui3-dialog-button-last{
     text-align: right;
 }
 
@@ -90,8 +94,8 @@
     text-decoration: none;
 }
 
-.ui3-dialog-buttons-1 li{
-    text-align: center;;
+.ui3-dialog-buttons-1 td{
+    text-align: center;
 }
 
 .ui3-dialog-buttons-1 .ui3-dialog-button{
