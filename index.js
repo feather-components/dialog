@@ -209,6 +209,7 @@ var Dialog = Class.$factory('dialog', {
 
         self.$mask && self.$mask.open();
         self.$overlay.open();
+        self.$overlay.setPosCenter();
         self.trigger('open');
 
         if(self.isFirstOpen){
